@@ -287,6 +287,12 @@ $(function () {
                 const rawinput = handlers[2];
 
                 terminal.xterm.onKey(onKey);
+                terminal.terminal.find("textarea").on("paste", function(e) { //Grad actual textarea that contextmenu clicks on
+                    const text = e.originalEvent.clipboardData.getData("text")
+                    for (var i in text) {
+                        rawinput(text[i])
+                    }
+                });
 
                 const prevOnmessage = socket.onmessage;
                 socket.onmessage = (e) => {
