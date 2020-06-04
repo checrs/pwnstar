@@ -19,6 +19,14 @@ class PwnstarTerminal {
 
     this.xterm = new window.Terminal();
     this.xterm.open(this.terminal[0]);
+    this.xterm.attachCustomKeyEventHandler(function(e) {
+        if ((e.key === "v" || e.key === "c") && e.ctrlKey){
+            console.log("PASTING FROM CTRL+V")
+            return false;
+        } else {
+            return true;
+        }
+    })
 
     function resize(terminal) {
       const MINIMUM_COLS = 2;
@@ -140,13 +148,13 @@ function nonttyHandlers(terminal, socket) {
           channel: terminal.input,
         })
       );
-    } else if (e.domEvent.key === "c" && modifier === 1) {
-      socket.send(
-        JSON.stringify({
-          signal: "kill",
-          channel: terminal.input,
-        })
-      );
+    //} else if (e.domEvent.key === "c" && modifier === 1) {
+      //socket.send(
+        //JSON.stringify({
+          //signal: "kill",
+          //channel: terminal.input,
+        //})
+      //);
     } else if (e.domEvent.key === e.key && !modifier) {
       rawinput(e.key);
     }
