@@ -21,7 +21,6 @@ class PwnstarTerminal {
     this.xterm.open(this.terminal[0]);
     this.xterm.attachCustomKeyEventHandler(function(e) {
         if ((e.key === "v" || e.key === "c") && e.ctrlKey){
-            console.log("PASTING FROM CTRL+V")
             return false;
         } else {
             return true;
