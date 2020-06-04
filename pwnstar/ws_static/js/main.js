@@ -70,6 +70,8 @@ class PwnstarTerminal {
     }
 }
 
+var is_window_newline = false;
+
 function nonttyHandlers(terminal, socket) {
     var buffer = '';
 
@@ -98,7 +100,11 @@ function nonttyHandlers(terminal, socket) {
               (e.domEvent.metaKey && 4);
 
         if (e.domEvent.key === 'Enter' && !modifier) {
-            buffer += '\n';
+            if (is_window_newline) {
+                buffer += '\r\n'
+            } else {
+                buffer += '\n';
+            }
             socket.send(JSON.stringify({
                 'data': buffer,
                 'channel': terminal.input
@@ -339,5 +345,30 @@ $(function () {
                 };
             }
         });
+
+        let windows_newline_label = $('<div>').attr('class', 'pwnstar-tab pwnstar-windows-newline-label').text("windows newline: ");
+        let newline_button = $('<button>').attr('class', 'pwnstar-tab pwnstar-windows-newline').text("off");
+        let newline_tooltip = $('<span>').attr('class', 'tooltiptext').html("off: Uses \\n for newline<br>on: Uses \\r\\n for newline");
+        newline_button.on('click', function(e) {
+            let windows_newline_button = $('.pwnstar-windows-newline');
+            if (windows_newline_button.text() === "off") {
+              windows_newline_button.text("on");
+              windows_newline_button.css("background-color", "lightgreen");
+              is_window_newline = true;
+            } else {
+              windows_newline_button.text("off");
+              windows_newline_button.css("background-color", "grey");
+              is_window_newline = false;
+            }
+          });
+
+        windows_newline_label.hover(function() {
+            newline_tooltip.fadeIn().css("display", "block");
+        }, function() {
+            newline_tooltip.fadeOut();
+        })
+        windows_newline_label.append(newline_button);
+        windows_newline_label.append(newline_tooltip);
+        $('.pwnstar-tabs').append(windows_newline_label);
     });
 });

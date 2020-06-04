@@ -78,6 +78,48 @@ html, body {
     -webkit-mask: url(/img/redo-solid.svg) no-repeat center;
 }
 
+.pwnstar-windows-newline-label {
+    background-color: transparent;
+    color: lightgrey;
+}
+
+.pwnstar-windows-newline {
+    width:120px;
+    padding-left: 0px;
+    padding-right: 0px;
+    height: 24px;
+    line-height: 22px;
+    margin-bottom: 4px;
+    border-radius: 3px 3px 3px 3px;
+}
+
+/* Tooltip text */
+.tooltiptext {
+    display: none;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    /* Position the tooltip text */
+    position: relative;
+    z-index: 1;
+    top: 5px;
+    margin-left: -60px;
+  }
+  /* Tooltip arrow */
+.tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #555 transparent;
+  }
+  /* Show the tooltip text when you mouse over the tooltip container */
+
 .pwnstar-kill {
     position: absolute;
     left: 100%;
