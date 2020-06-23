@@ -19,7 +19,14 @@
       </span>
     </div>
 
-    <div class="modal fade" id="annotateModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div
+      class="modal fade"
+      id="annotateModal"
+      tabindex="-1"
+      role="dialog"
+      data-backdrop="static"
+      data-keyboard="false"
+    >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -29,11 +36,55 @@
             <textarea id="annotation"></textarea>
           </div>
           <div class="modal-footer">
-            <button id="annotate" type="button" class="btn btn-primary">Annotate</button>
+            <button id="annotate" type="button" class="btn btn-primary">
+              Annotate
+            </button>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Insert Bytes Modal -->
+    <div
+      class="modal fade"
+      id="insert_bytes_modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="insert_bytes_modal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="insert_bytes_modal_label">Insert Bytes</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="input-group">
+              <input
+                id="byte_input"
+                type="text"
+                class="form-control"
+                placeholder="61626364ff..."
+                aria-label="byte_input"
+                aria-describedby="basic-addon2"
+              />
+              <div class="input-group-append">
+                <button id="insert_bytes_confirm" class="btn btn-dark" data-dismiss="modal" type="button">
+                  insert
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

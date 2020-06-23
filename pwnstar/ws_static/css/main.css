@@ -78,6 +78,53 @@ html, body {
     -webkit-mask: url(/img/redo-solid.svg) no-repeat center;
 }
 
+.pwnstar-windows-newline-label {
+    background-color: transparent;
+    color: lightgrey;
+}
+
+.pwnstar-windows-newline {
+    min-width:120px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 24px;
+    line-height: 22px;
+    margin-bottom: 4px;
+    margin-right: 10px;
+    border-radius: 3px 3px 3px 3px;
+}
+.pwnstar-windows-newline:disabled {
+    background-color: dimgray;
+    color: darkgray;
+}
+
+/* Tooltip text */
+.tooltiptext {
+    display: none;
+    background-color: gray;
+    color: white;
+    text-align: center;
+    font-size: 10px;
+    border-radius: 6px;
+    /* Position the tooltip text */
+    position: relative;
+    z-index: 1;
+    top: 5px;
+    margin-left: -60px;
+  }
+  /* Tooltip arrow */
+.tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #555 transparent;
+  }
+  /* Show the tooltip text when you mouse over the tooltip container */
+
 .pwnstar-kill {
     position: absolute;
     left: 100%;
@@ -110,6 +157,26 @@ html, body {
 
 .pwnstar-kill:hover .pwnstar-kill-tooltip {
     visibility: visible;
+}
+
+#byte_input {
+    font-family: "Lucida Console", Monaco, monospace;
+    background-color: gray;
+    color: white;
+}
+
+#byte_input::placeholder {
+    color: #555;
+  }
+
+#insert_bytes_modal .modal-header button{
+    color: white;
+}
+
+#insert_bytes_modal .modal-content{
+    background-color: #282828;
+    font-family: "Lucida Console", Monaco, monospace;
+    color: white;
 }
 
 .xterm-viewport {
