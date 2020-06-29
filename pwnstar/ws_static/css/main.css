@@ -8,7 +8,7 @@ html, body {
 }
 
 .pwnstar-tabs {
-    height: 30px;
+    /*height: 30px;*/
     background-color: #282828;
     user-select: none;
 }
